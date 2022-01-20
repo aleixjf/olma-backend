@@ -19,8 +19,8 @@ if (fs.existsSync(cert) && fs.existsSync(key)) {
   httpsOptions.cert = fs.readFileSync(cert);
   httpsOptions.key = fs.readFileSync(key);
 } else if (process.env.APP_CERT && process.env.APP_KEY) {
-  httpsOptions.cert = fs.readFileSync(process.env.APP_CERT);
-  httpsOptions.key = fs.readFileSync(process.env.APP_KEY);
+  httpsOptions.cert = process.env.APP_CERT;
+  httpsOptions.key = process.env.APP_KEY;
 }
 
 async function bootstrap() {

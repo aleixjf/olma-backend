@@ -7,7 +7,8 @@ import { ConfigService } from '@nestjs/config';
 //App
 import { AppModule } from './app.module';
 import { TypeOrmExceptionFilter } from './shared/filters/type-orm-exception.filter';
-import * as csurf from 'csurf';
+import csurf from 'csurf';
+import helmet from 'helmet';
 
 import * as fs from 'fs';
 import { HttpsOptions } from '@nestjs/common/interfaces/external/https-options.interface';
@@ -31,6 +32,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.useGlobalFilters(new TypeOrmExceptionFilter());
   app.use(csurf());
+  app.use(helmet());
   const configService = app.get(ConfigService);
 
   const options = new DocumentBuilder()

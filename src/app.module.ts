@@ -41,6 +41,7 @@ import { DatabaseType } from 'typeorm';
         //synchronize: true,
         //keepConnectionAlive: true,
         logging: true,
+        ssl: true,
       }),
     }),
     UsersModule,

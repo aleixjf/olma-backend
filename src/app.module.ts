@@ -47,16 +47,13 @@ import { configuration, validate } from 'config';
         //synchronize: true,
         //keepConnectionAlive: true,
         logging: true,
-        ssl: process.env.NODE_ENV == 'development' ? false : true,
-
-        /*
+        //ssl: process.env.NODE_ENV == 'development' ? false : true,
         ssl:
           process.env.NODE_ENV == 'development'
             ? false
             : {
-                rejectUnauthorized: true,
+                rejectUnauthorized: false,
               },
-        */
       }),
     }),
     UsersModule,
